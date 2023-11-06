@@ -7,7 +7,7 @@ import org.junit.Test;
 public class SistemaTest {
 
 	@Test
-	public void testQueRegistroUnBanco() {
+	public void testQueRegistroUnBanco() throws YaExisteBanco {
 		Vigilancia vigilancia = new Vigilancia("Nombre De la Compania de Vigilancia");
 
 		Integer idbanco = 1;
@@ -61,7 +61,7 @@ public class SistemaTest {
 
 	@Test
 	public void queSePuedaRegistraUnAtraco() throws PersonaDuplicadaException, NoSeEncuentraAtracadorException,
-			BancoNoEncontradoExcecption, ClaveInexistenteException {
+			BancoNoEncontradoExcecption, ClaveInexistenteException, YaExisteBanco {
 
 		Vigilancia vigilancia = new Vigilancia("Nombre De la Compania de Vigilancia");
 		// banda
@@ -95,7 +95,7 @@ public class SistemaTest {
 	}
 
 	@Test
-	public void queSePuedaObtenerLosAtracadoresOrdenadosPorApodos() throws PersonaDuplicadaException {
+	public void queSePuedaObtenerLosAtracadoresOrdenadosPorApodos() throws PersonaDuplicadaException, YaExisteBanco {
 		Vigilancia vigilancia = new Vigilancia("Nombre De la Compania de Vigilancia");
 		// banda
 		Integer idBanda = 1;
@@ -121,7 +121,7 @@ public class SistemaTest {
 
 	// Cree un 3 test a su eleccion para que pruebe el resto de las funcionalidades
 	@Test
-	public void queSePuedaObtenerUnVigilanteDeUnAtraco() throws PersonaDuplicadaException, ClaveInexistenteException, NoSeEncuentraAtracadorException, BancoNoEncontradoExcecption, VigilanteNoEncontradoException {
+	public void queSePuedaObtenerUnVigilanteDeUnAtraco() throws PersonaDuplicadaException, ClaveInexistenteException, NoSeEncuentraAtracadorException, BancoNoEncontradoExcecption, VigilanteNoEncontradoException, YaExisteBanco {
 		Vigilancia vigilancia = new Vigilancia("Nombre De la Compania de Vigilancia");
 		// banda
 		Integer idBanda = 1;
@@ -143,7 +143,7 @@ public class SistemaTest {
 	}
 
 	@Test(expected = VigilanteNoEncontradoException.class)
-		public void queCuandoNoSeEncuentreUnVigiladorDelAtracoSeLanceVigilanteNoEncontradoException() throws PersonaDuplicadaException, NoSeEncuentraAtracadorException, BancoNoEncontradoExcecption, ClaveInexistenteException, VigilanteNoEncontradoException {
+		public void queCuandoNoSeEncuentreUnVigiladorDelAtracoSeLanceVigilanteNoEncontradoException() throws PersonaDuplicadaException, NoSeEncuentraAtracadorException, BancoNoEncontradoExcecption, ClaveInexistenteException, VigilanteNoEncontradoException, YaExisteBanco {
 		Vigilancia vigilancia = new Vigilancia("Nombre De la Compania de Vigilancia");
 		// banda
 		Integer idBanda = 1;
